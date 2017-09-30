@@ -5,17 +5,44 @@ $(document).ready(function() {
     "Kendrick Lamar", "SZA", "Chance The Rapper", "Andre 3000", "Erykah Badu", "Gucci Mane", "A$AP Ferg", "Missy Elliot", 
     ];
 
+    // append buttons to page 
+
+
+    for (var i = 0 ; i < artists.length ; i++ )  {
+        $("#artist-buttons").append("<button class='btn btn-primary' type='submit'> "+ artists[i] + " </button>");
+        console.log("buttons");
+    }
+
+
   // create function to make buttons
-  function createButtons( ) {
+  function createButtons( textValue ) {
+        $("#artist-buttons").append("<button class='btn btn-primary' type='submit'> "+ textValue + " </button>");
+      
  
   }
 
+  $("#artist-form").on("submit",function(event) {
+    event.preventDefault();
+      var artistText = $("#artist-input").val();
+      
+      createButtons(artistText);
+  })
+
+
+
+
   //create function when the button is clicked for adding the artist 
-  $(document).on("click", ".artist-buttons", function() {
+  $("#artist-buttons").on("click", ".btn", function() {
     $("#artists").empty();
+    console.log("#artist-buttons")
+
+    var artistText = $(this).html();
+    console.log(artistText);
+    
   
 
-    var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + type + "&api_key=dc6zaTOxFJmzC&limit=10";
+    var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + artistText + "&api_key=dc6zaTOxFJmzC&limit=10";
+
 
     $.ajax({
       url: queryURL,
@@ -23,12 +50,21 @@ $(document).ready(function() {
     })
     .done(function(response) {
       var imgUrl = response.data.image_original_url;
+      console.log(response);
 
       //create for loop
+      //append images 
+      // pause and stop gifs
+
+
      
       
   });
-    // pause and stop gifs
+
+  });
+
+});
+
 
  
 
