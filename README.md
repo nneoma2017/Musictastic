@@ -1,5 +1,3 @@
-# week-6
+# Musictastic
 
-In this assignement Overview
-
-In this assignment,we used the GIPHY API to make a dynamic web page that populates with gifs of our choice. The GIPHY AP, JavaScript, and jQuery were used to change the HTML of your site.
+An application that uses the GIPHY API to make a dynamic web page that populates with gifs of a user's choice. The GIPHY AP, JavaScript, and jQuery were used to change the HTML of your site.
